@@ -11,17 +11,21 @@
   var a= "{{world_data}}"
 
   function drawRegionsMap() {
-    var data = google.visualization.arrayToDataTable(a);
+    var data = google.visualization.arrayToDataTable({{ list }});
 
     var options = {
       colorAxis: {
         minValue: 0,
-        colors: ['#FFEBEE', '#B71C1C']
+        colors: ['#F1ECC3', '#B71C1C']
       },
-      backgroundColor: '#161616'
+      magnifyingGlass: {
+        enable: true,
+        zoomFactor: 7.5,
+      },
+      backgroundColor: '#1F1C18',
 
-      //   region: 'GB',
-      //   resolution: 'provinces'
+        // region: 'IN',
+        // resolution: 'provinces'
     };
 
     var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));

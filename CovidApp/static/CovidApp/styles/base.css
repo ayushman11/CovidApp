@@ -38,9 +38,9 @@ a:active {
   position: relative;
   height: 90vh;
   background-image: linear-gradient(
-      to right bottom,
-      rgba(228, 0, 23, 0.8),
-      rgba(207, 0, 0, 0.8)
+      to bottom,
+      #c31431bb,
+      rgba(0, 0, 0, 0.692)
     ),
     url("../images/header_bg.jpg");
   background-size: cover;
@@ -63,7 +63,7 @@ a:active {
 }
 
 #covid-map-world {
-  background-color: #161616;
+  background-color: #1F1C18;
 }
 
 @keyframes moveinBottom {

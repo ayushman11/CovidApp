@@ -14,9 +14,9 @@
   <!-- GOOGLE MAPS -->
   <!-- {% include 'CovidApp/includes/googlemaps.html' %} -->
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     var a = "{{world_data}}";
-  </script>
+  </script> -->
   <script type="text/javascript">
     google.charts.load('current', {
       'packages': ['geochart'],
@@ -25,14 +25,16 @@
       'mapsApiKey': 'AIzaSyDT8xOPFAN96wf7PiY5Mt4s0jF1_oYQyGA'
     });
     google.charts.setOnLoadCallback(drawRegionsMap);
+
+    // var a= {{ world_data|safe }};
     
     function drawRegionsMap() {
-      var data = google.visualization.arrayToDataTable(a);
+      var data = google.visualization.arrayToDataTable({{world_data|safe}});
   
       var options = {
         colorAxis: {
-          minValue: 0,
-          colors: ['#FFEBEE', '#B71C1C']
+          minValue: -10000,
+          colors: ['#e8715f', '#B71C1C']
         },
         backgroundColor: '#161616'
   

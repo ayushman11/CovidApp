@@ -31,16 +31,19 @@ def country_cases():
         try:
         # table_data= row.find_all('td')
             country= row.find('a',class_='mt_a').text
-            case= row.find_all('td')[2].text
-            name_active.append([country,case])
+            if country=='USA': country='US'
+            case= row.find_all('td')[2].text.replace(',','')
+            name_active.append([country,int(case)])
         except AttributeError:
             continue
-
+    
     return name_active
 
 
 def index(request):
+    import json
     world_data= country_cases()
+    country_data= json.dumps(world_data)
     return render(request, 'CovidApp/index.html', {
-        'world_data': world_data
+        'world_data': country_data
     })

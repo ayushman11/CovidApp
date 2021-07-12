@@ -12,8 +12,39 @@
   <link rel="stylesheet" href="{% static 'CovidApp/styles/base.css' %}">
 
   <!-- GOOGLE MAPS -->
-  {% include 'CovidApp/includes/googlemaps.html' %}
-
+  <!-- {% include 'CovidApp/includes/googlemaps.html' %} -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    var a = "{{world_data}}";
+  </script>
+  <script type="text/javascript">
+    google.charts.load('current', {
+      'packages': ['geochart'],
+      // Note: you will need to get a mapsApiKey for your project.
+      // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+      'mapsApiKey': 'AIzaSyDT8xOPFAN96wf7PiY5Mt4s0jF1_oYQyGA'
+    });
+    google.charts.setOnLoadCallback(drawRegionsMap);
+    
+    function drawRegionsMap() {
+      var data = google.visualization.arrayToDataTable(a);
+  
+      var options = {
+        colorAxis: {
+          minValue: 0,
+          colors: ['#FFEBEE', '#B71C1C']
+        },
+        backgroundColor: '#161616'
+  
+        //   region: 'GB',
+        //   resolution: 'provinces'
+      };
+  
+      var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+  
+      chart.draw(data, options);
+    }
+  </script>
   <title>Covid App</title>
 </head>
 
@@ -22,48 +53,59 @@
   {% include 'CovidApp/includes/navbar.html' %}
 
   <!-- HEADER -->
-  <header class="header align-items-center text-center justify-content-center px-3">
-    <div class="h1 text-light text-center header-heading">Overall Stats</div>
+  <!-- <header class="container-fluid justify-content-center align-items-center text-center header">
+    <div class="heading-box">
+        <div class="primary-heading text-center display-4 my-5 text-light">Overall Stats</div>
+        <div class="seconady-heading text-center lead text-muted my-3">Learn How To Work Through the Portal</div>
+        <button type="button" class="btn btn-outline-secondary rounded-pill"><a href="#Steps"> Start Now </a></button>
+    </div>
+</header> -->
 
-    <div class="row align-items-center justify-content-center cards-row my-5">
-      <div class="col-8 col-lg-4 col-xl-3">
-        <div class="card shadow-lg bg-light">
-          <div class="card-body text-center">
-            <div class="card-title fw-bold text-danger">Confirmed</div>
-            <div class="lead card-subtitle">+41,007</div>
+  <header class="header align-items-center text-center justify-content-center px-3">
+    <div class="container">
+      <div class="h1 text-light text-center header-heading">Overall Stats</div>
+  
+      <div class="row align-items-center justify-content-center cards-row my-5">
+        <div class="col-8 col-lg-4 col-xl-3">
+          <div class="card shadow-lg bg-light">
+            <div class="card-body text-center">
+              <div class="card-title fw-bold text-danger">Confirmed</div>
+              <div class="lead card-subtitle">+41,007</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-8 col-lg-4 col-xl-3">
+          <div class="card shadow-lg bg-light">
+            <div class="card-body text-center">
+              <div class="card-title fw-bold text-primary">Active</div>
+              <div class="lead card-subtitle">+141,207</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-8 col-lg-4 col-xl-3">
+          <div class="card shadow-lg bg-light">
+            <div class="card-body text-center">
+              <div class="card-title fw-bold text-success">Recovered</div>
+              <div class="lead card-subtitle">+2,231,007</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-8 col-lg-4 col-xl-3">
+          <div class="card shadow-lg bg-light">
+            <div class="card-body text-center">
+              <div class="card-title fw-bold text-secondary">Deceased</div>
+              <div class="lead card-subtitle">+3,41,007</div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-8 col-lg-4 col-xl-3">
-        <div class="card shadow-lg bg-light">
-          <div class="card-body text-center">
-            <div class="card-title fw-bold text-primary">Active</div>
-            <div class="lead card-subtitle">+141,207</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-8 col-lg-4 col-xl-3">
-        <div class="card shadow-lg bg-light">
-          <div class="card-body text-center">
-            <div class="card-title fw-bold text-success">Recovered</div>
-            <div class="lead card-subtitle">+2,231,007</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-8 col-lg-4 col-xl-3">
-        <div class="card shadow-lg bg-light">
-          <div class="card-body text-center">
-            <div class="card-title fw-bold text-secondary">Deceased</div>
-            <div class="lead card-subtitle">+3,41,007</div>
-          </div>
-        </div>
-      </div>
+
     </div>
   </header>
 
   <!-- COVID MAP -->
-  <section id="covid-map" class="text-center justify-content-center">
-    <h2 class="border-bottom border-3 border-dark">Covid - Around the Globe</h2>
+  <section id="covid-map-world" class="text-center justify-content-center">
+    <h2 class="border-bottom border-3 border-secondary text-white">Covid - Around the Globe</h2>
     <div id="regions_div" style="width:100%; height: 91vh;"></div>
   </section>
 

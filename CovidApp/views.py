@@ -62,10 +62,22 @@ def india_data():
 
     return data
 
-        
+def worldwide_data():
+    from bs4 import BeautifulSoup
+    html_text= html_content_world()
+    soup= BeautifulSoup(html_text, 'html.parser')
+    data= soup.find_all('div', {'id': 'maincounter-wrap'})
+    world_info=[]
 
+    for x in data:
+        world_info.append(int(x.div.span.text.replace(',','')))
 
+    world_info.insert(1,world_info[0]-world_info[2])
 
+    for i in range(4):
+        world_info[i]='{:,}'.format(world_info[i])
+
+    return world_info
 
 def country_cases():
     from bs4 import BeautifulSoup
@@ -89,10 +101,12 @@ def country_cases():
 
 def index(request):
     import json
+    worldwide= worldwide_data()
     world_data= country_cases()
     india= india_data()
     country_data= json.dumps(world_data)
     return render(request, 'CovidApp/index.html', {
+        'worldwide': worldwide,
         'india_data': india,
         'world_data': country_data
     })

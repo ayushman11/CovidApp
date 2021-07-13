@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="{% static 'CovidApp/styles/base.css' %}">
   <link rel="shortcut icon" href="{% static 'CovidApp/images/syringe-solid.ico' %}" type="image/x-icon">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'CovidApp/styles/all.min.css' %}">
   <!-- GOOGLE MAPS -->
   {% include 'CovidApp/includes/googlemaps.html' with list=world_data|safe %}
 
@@ -22,19 +23,32 @@
   <!-- NAVBAR -->
   {% include 'CovidApp/includes/navbar.html' %}
 
-  <!-- HEADER -->
-  <!-- <header class="container-fluid justify-content-center align-items-center text-center header">
-    <div class="heading-box">
-        <div class="primary-heading text-center display-4 my-5 text-light">Overall Stats</div>
-        <div class="seconady-heading text-center lead text-muted my-3">Learn How To Work Through the Portal</div>
-        <button type="button" class="btn btn-outline-secondary rounded-pill"><a href="#Steps"> Start Now </a></button>
+  <!-- MODAL -->
+  <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-dialog" style="z-index: 2000;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-title">Recent News</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          {% for headline in headlines %}
+            <div class="headline">
+              <h6>{{headline.0}}</h6>
+              <p class="border-start border-2 ps-2 border-dark"><a href="{{headline.2}}" target="_blank">{{headline.1}}</a></p>
+            </div>
+            {% endfor %}
+        </div>
+      </div>
     </div>
-</header> -->
+  </div>
+
+  <!-- HEADER -->
 
   <header class="header align-items-center text-center justify-content-center px-3">
     <div class="container">
       <div class="h1 text-light text-center header-heading">Overall Stats</div>
-  
+
       <div class="row align-items-center justify-content-center cards-row my-5">
         <div class="col-8 col-lg-4 col-xl-3">
           <div class="card shadow-lg">
@@ -85,10 +99,10 @@
     <table class="mt-2 mx-auto">
       <thead>
         <tr>
-          <th class="fw-bold">State</th>
-          <th class="fw-bold">Confirmed</th>
-          <th class="fw-bold">Recovered</th>
-          <th class="fw-bold">Deceased</th>
+          <th class="fw-bold fs-5">State</th>
+          <th class="fw-bold fs-5">Confirmed</th>
+          <th class="fw-bold fs-5">Recovered</th>
+          <th class="fw-bold fs-5">Deceased</th>
         </tr>
       </thead>
       <tbody>

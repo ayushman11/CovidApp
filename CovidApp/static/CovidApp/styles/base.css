@@ -30,9 +30,13 @@ a:active {
   font-weight: inherit;
 }
 
-.navbar {
-  z-index: 8888;
+/* .menu-bar {
+  background-image: linear-gradient(-90deg, #d38312, #a83279);
 }
+
+.fa-cog {
+  color: #2962ff;
+} */
 
 .header {
   position: relative;

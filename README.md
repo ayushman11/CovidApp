@@ -3,7 +3,7 @@ Web scraping project using Django and BeautifulSoup
 
 ## Installation Procedure
 
-Install `Anaconda` on your system and include its bin path in the environment variables  
+Install [`Anaconda`](https://www.anaconda.com/products/individual) on your system and include its bin path in the environment variables  
 
 Clone this repository on your local computer using the command `git clone https://github.com/ayushman11/CovidApp`  
 

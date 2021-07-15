@@ -4,8 +4,9 @@ Web scraping project using Django and BeautifulSoup
 ## Installation Procedure
 
 Install `Anaconda` on your system and include its bin path in the environment variables  
+
 Clone this repository on your local computer using the command
-`git clone https://github.com/ayushman11/CovidApp`&nbsp  
+`git clone https://github.com/ayushman11/CovidApp`\
 Run the following command in the terminal opened in the location of the repository\
 to create a virtual environment and install Django:
 `conda create --name myEnv django`\

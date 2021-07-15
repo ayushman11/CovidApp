@@ -19,6 +19,8 @@ Run the Django server on a local host port using: `python manage.py runserver`
 
 Now, paste the url (like 127.0.0.1:8000/CovidApp) in a web browser, to view the webpage.  
 
+At the end, deacctivate the virtual environment using: `conda deactivate`  
+
 ## Dependencies of the Project
 
   ### Front-end:

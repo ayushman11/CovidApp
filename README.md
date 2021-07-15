@@ -21,12 +21,13 @@ Now, paste the url (like 127.0.0.1:8000/CovidApp) in a web browser, to view the 
 
 ## Dependencies of the Project
 
-  ### Front-end:\
+  ### Front-end:
   ● HTML for the basic skeleton of the webpage.\
   ● Base CSS for designing and appearance.\
   ● Bootstrap 5 framework for a quick design and customizations.\
-  ● FontAwesome for icons and images.\
-  ### Back-end:\
+  ● FontAwesome for icons and images.  
+  
+  ### Back-end:
   ● Django (a Python-based web framework) for rapid development and clean,\
   pragmatic design in the model-template-views architectural pattern.\
   ● BeautifulSoup is a Python library that is used for pulling data out of HTML and\

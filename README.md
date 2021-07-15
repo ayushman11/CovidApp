@@ -7,7 +7,7 @@ Install [`Anaconda`](https://www.anaconda.com/products/individual) on your syste
 
 Clone this repository on your local computer using the command `git clone https://github.com/ayushman11/CovidApp`  
 
-Run the following command in the terminal opened in the location of the repository\
+Run the following command in the terminal opened in the location of the repository
 to create a virtual environment and install Django:
 `conda create --name myEnv django`  
 

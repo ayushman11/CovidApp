@@ -1,5 +1,6 @@
 # CovidApp
-Web scraping project using Django and BeautifulSoup
+Web scraping project using Django and BeautifulSoup.\
+Watch an explanation video on [youtube](https://www.youtube.com/watch?v=Xm4MiNY6fZU&t=2s)
 
 ## Installation Procedure
 
